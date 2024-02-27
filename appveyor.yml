@@ -1,0 +1,8 @@
+version: 1.0.{build}
+image: Visual Studio 2022
+environment:
+  PYTHON: "C:\\Python39-x64"
+install:
+- cmd: pip install nuitka
+build_script:
+- cmd: python -m nuitka --mingw64 --lto=no --standalone --follow-imports --onefile --plugin-enable=pylint-warnings --windows-disable-console --windows-product-name=test --windows-file-description="test app" --windows-product-version=0.0.0.1 --windows-company-name=TestApp main.py
